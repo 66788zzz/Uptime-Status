@@ -88,7 +88,7 @@
             rel="noopener noreferrer"
             class="font-semibold hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
           >
-            JLinmr
+            简单
           </a>
         </div>
       </div>
