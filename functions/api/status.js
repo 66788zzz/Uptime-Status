@@ -31,7 +31,7 @@ export async function onRequest(context) {
     const data = await context.request.json()
 
     // 转发请求到 UptimeRobot API
-    const response = await fetch('https://api.uptimerobot.com/v2/getMonitors', {
+    const response = await fetch('https://api.uptimerobot.com/v3/getMonitors', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
