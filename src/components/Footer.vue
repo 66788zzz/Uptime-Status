@@ -33,7 +33,7 @@
     <div class="flex flex-col items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
       <div class="flex items-center gap-6">
         <a 
-          href="https://github.com/66788zzz"
+          :href="pkg.repository.url"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center p-1.5 rounded-full transition-colors duration-200
@@ -44,7 +44,7 @@
           <Icon icon="ri:github-line" class="w-5 h-5" />
         </a>
         <a 
-          href="https://www.ios1.top"
+          :href="pkg.url"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center p-1.5 rounded-full transition-colors duration-200
@@ -55,7 +55,7 @@
           <Icon icon="carbon:home" class="w-5 h-5" />
         </a>
         <a 
-          href="mailto:simple@ios1.top"
+          :href="`mailto:${pkg.email}`"
           class="inline-flex items-center justify-center p-1.5 rounded-full transition-colors duration-200
             text-gray-400 hover:text-gray-600 hover:bg-gray-200
             dark:text-gray-500 dark:hover:text-gray-400 dark:hover:bg-gray-700
@@ -67,7 +67,7 @@
       <div class="flex flex-col items-center gap-1">
         <div>
           <a 
-            :href="repositoryUrl" 
+            :href="pkg.repository.url" 
             target="_blank" 
             rel="noopener noreferrer"
             class="font-semibold hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
@@ -83,12 +83,12 @@
         </div>
         <div>
           Copyright © 2020 - {{ new Date().getFullYear() }} <a 
-            href="https://www.ios1.top"
+            :href="pkg.repository.url"
             target="_blank"
             rel="noopener noreferrer"
             class="font-semibold hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
           >
-            化羽成简
+            JLinmr
           </a>
         </div>
       </div>
@@ -97,24 +97,26 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Icon } from '@iconify/vue'
 import pkg from '../../package.json'
 
+/**
+ * 控制返回顶部按钮的显示
+ */
 const showBackToTop = ref(false)
 const SCROLL_THRESHOLD = 300
 
-const repositoryUrl = computed(() => {
-  if (pkg.repository && pkg.repository.url) {
-    return pkg.repository.url
-  }
-  return 'https://github.com/JLinmr/Uptime-Status' // 默认值
-})
-
+/**
+ * 监听滚动事件
+ */
 const handleScroll = () => {
   showBackToTop.value = window.scrollY > SCROLL_THRESHOLD
 }
 
+/**
+ * 平滑滚动到顶部
+ */
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
@@ -129,4 +131,4 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
-</script>
+</script> 
