@@ -83,12 +83,12 @@
         </div>
         <div>
           Copyright © 2020 - {{ new Date().getFullYear() }} <a 
-            :href="pkg.repository.url"
+            href="https://github.com/66788zzz"
             target="_blank"
             rel="noopener noreferrer"
             class="font-semibold hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
           >
-            JLinmr
+            化羽成简
           </a>
         </div>
       </div>
