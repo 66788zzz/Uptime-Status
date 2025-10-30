@@ -82,7 +82,7 @@
           >UptimeRobot</a> 接口 | 检测频率 5 分钟
         </div>
         <div>
-          Copyright © 2020 - {{ new Date().getFullYear() }} <a 
+          Copyright © 2024 - {{ new Date().getFullYear() }} <a 
             href="https://github.com/66788zzz"
             target="_blank"
             rel="noopener noreferrer"
